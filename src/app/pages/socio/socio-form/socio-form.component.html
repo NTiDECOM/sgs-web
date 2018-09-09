@@ -1,0 +1,224 @@
+<div class="row">
+  <div class="col-12 col-md-12">
+    <h2>Novo Associado</h2>
+  </div>
+</div>
+<form #f="ngForm" role="form">
+  <div class="row">
+    <div class="col-5">
+        <div class="form-group">
+          <label>Tipo de Pessoa</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipoPessoa" [(ngModel)]="socio.pessoa.tipoPessoa"
+                    id="tipoPessoa1" value="FISICA" (ngModelChange)="tipoPessoaChange($event)" required>
+            <label class="form-check-label" for="tipoPessoa1">
+              Física
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tipoPessoa" [(ngModel)]="socio.pessoa.tipoPessoa"
+                    id="tipoPessoa2" value="JURIDICA" (ngModelChange)="tipoPessoaChange($event)" required>
+            <label class="form-check-label" for="tipoPessoa2">
+              Jurídica
+            </label>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" [(ngModel)]="socio.pessoa.nome"
+               id="nome" name="nome" placeholder="Nome Completo" required>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="form-group">
+        <label for="comoSerChamado">Como ser chamado</label>
+        <input type="text" class="form-control" [(ngModel)]="socio.pessoa.comoSerChamado"
+               id="comoSerChamado" name="comoSerChamado" placeholder="Como ser chamado">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" [(ngModel)]="socio.pessoa.email"
+               id="email" placeholder="Email" name="email">
+      </div>
+    </div>
+    <div class="col-5" *ngIf="socio.pessoa.tipoPessoa === 'FISICA'">
+      <div class="form-group">
+        <label>Sexo</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="sexo" [(ngModel)]="socio.pessoa.sexo"
+                 id="sexo1" value="MASCULINO">
+          <label class="form-check-label" for="sexo1">
+            Masculino
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="sexo" [(ngModel)]="socio.pessoa.sexo"
+                 id="sexo2" value="FEMININO">
+          <label class="form-check-label" for="sexo2">
+            Feminino
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4" *ngIf="socio.pessoa.tipoPessoa === 'FISICA'">
+      <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input type="text" class="form-control" [(ngModel)]="socio.pessoa.cpf"
+               id="cpf" [mask]="maskCpf" placeholder="CPF" name="cpf">
+      </div>
+    </div>
+    <div class="col-4" *ngIf="socio.pessoa.tipoPessoa === 'JURIDICA'">
+      <div class="form-group">
+        <label for="cpf">CNPJ</label>
+        <input type="text" class="form-control" [(ngModel)]="socio.pessoa.cnpj"
+                id="cnpj" [mask]="maskCnpj" placeholder="CNPJ" name="cnpj">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="data_nascimento">Data de Nascimento</label>
+        <input type="text" class="form-control" id="data_nascimento" name="data_nascimento"
+        [mask]="dateMask" placeholder="dd/MM/yyyy" [(ngModel)]="socio.pessoa.dataNascimento">
+      </div>
+    </div>
+    <div class="col-4">
+        <div class="form-group">
+          <label for="data_adesao">Data de Adesao</label>
+          <input type="text" class="form-control" id="data_adesao" name="data_adesao"
+          [mask]="dateMask" placeholder="dd/MM/yyyy" [(ngModel)]="socio.dataAdesao">
+        </div>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <label for="metodo_contribuicao">Forma de Contribuição</label>
+        <select class="form-control" name="metodo_contribuicao" [(ngModel)]="socio.metodoContribuicao"
+                id="metodo_contribuicao">
+          <!--<option *ngFor="let m of metodosContribuicao">{{m}}</option>-->
+          <option value="DINHEIRO">Espécie</option>
+          <option value="DEPOSITO">Depósito</option>
+          <option value="CARTAO_DEBITO">Cartão de Débito</option>
+          <option value="CARTAO_CREDITO">Cartão de Crédito</option>
+          <option value="TRANSFERENCIA">Transferência</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label for="valor_contribuicao">Valor de Contribuição</label>
+        <input type="text" class="form-control" [(ngModel)]="socio.valorContribuicao"
+               id="valor_contribuicao" name="valor_contribuicao">
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label for="vencimento_contribuicao">Vencimento da Contribuição</label>
+        <input type="text" class="form-control" [(ngModel)]="socio.vencimentoContribuicao"
+               id="vencimento_contribuicao" name="vencimento_contribuicao">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <div class="form-group">
+        <label>Telefone</label>
+        <div class="row">
+          <div class="col-12">
+            <input type="text" class="form-control" name="telefone" [(ngModel)]="socio.telefone"
+            id="telefone" [mask]="maskPhone" placeholder="(DDD) 99999-9999">
+          </div>
+          <div class="col-3">
+            <!--<button class="btn btn-sm btn-outline-info">Add</button>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label>Modalidade de Associação</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="modalidade" [(ngModel)]="socio.modalidadeAssociacao"
+                 id="modalidade1" value="EFETIVO">
+          <label class="form-check-label" for="modalidade1">
+            Sócio Efetivo
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="modalidade" [(ngModel)]="socio.modalidadeAssociacao"
+                 id="modalidade2" value="FEDERATIVO">
+          <label class="form-check-label" for="modalidade2">
+            Sócio Federativo
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="modalidade" [(ngModel)]="socio.modalidadeAssociacao"
+                 id="modalidade3" value="CONTRIBUINTE">
+          <label class="form-check-label" for="modalidade3">
+            Sócio Contribuinte
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label>Categoria de Associação</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="categoria" [(ngModel)]="socio.categoriaAssociacao"
+                 id="categoria2" value="PARCEIRO">
+          <label class="form-check-label" for="categoria2">
+            Sócio Parceiro
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="categoria" [(ngModel)]="socio.categoriaAssociacao"
+                 id="categoria3" value="CONTRIBUINTE">
+          <label class="form-check-label" for="categoria3">
+            Sócio Contribuinte
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="categoria" [(ngModel)]="socio.categoriaAssociacao"
+                 id="categoria1" value="DOADOR">
+          <label class="form-check-label" for="categoria1">
+            Doador Esporádico
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button [disabled]="f.invalid" class="btn btn-lg btn-primary" (click)="salvarSocio()">Salvar</button>
+    </div>
+  </div>
+</form>
+
+<swal
+  #successAlert
+  title="Sucesso!"
+  text="O cadastro do assossiado foi realizado com sucesso."
+  type="success"
+  (confirm)="swalClose()">
+</swal>
+
+<swal
+  #errorAlert
+  title="Erro!"
+  text="Algo deu errado. Não foi dessa vez :/"
+  type="error">
+</swal>

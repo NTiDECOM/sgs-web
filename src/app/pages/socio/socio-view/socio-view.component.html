@@ -1,0 +1,77 @@
+<div class="row" style="margin-bottom: 30px;">
+  <div class="col-12 col-md-12">
+    <h2>Dados do Assossiado</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <h3>{{ socio.pessoa.nome }}</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>CPF: </strong>{{ socio.pessoa.cpf }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>Sexo: </strong>{{ socio.pessoa.sexo }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>Telefone: </strong>{{ socio.telefone }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>Email: </strong>{{ socio.pessoa.email }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>Data de Nascimento: </strong>{{ socio.pessoa.dataNascimento | date : "dd/MM/yyyy" }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>Valor da Contribuicao: </strong>R$ {{ socio.valorContribuicao }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>Vencimento da Contribuicao: </strong>{{ socio.vencimentoContribuicao }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>Metodo de Contribuicao: </strong>{{ socio.metodoContribuicao }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>Data de Adesao: </strong>{{ socio.dataAdesao | date : "dd/MM/yyyy" }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>Modalidade de Associação: </strong>{{ socio.modalidadeAssociacao }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-12">
+    <strong>Categoria de Contribuicao: </strong>{{ socio.categoriaAssociacao }}
+  </div>
+</div>
