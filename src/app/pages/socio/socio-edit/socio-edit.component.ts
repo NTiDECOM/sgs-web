@@ -1,13 +1,13 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SocioService } from '../../../services/socio.service';
 import { ActivatedRoute } from '@angular/router';
 import { Mask } from '@fagnerlima/ng-mask';
-import {SwalComponent} from '@toverux/ngx-sweetalert2';
+import { SwalComponent } from '@toverux/ngx-sweetalert2';
 
 @Component({
-  selector: 'app-socio-edit',
-  templateUrl: './socio-edit.component.html',
-  styleUrls: ['./socio-edit.component.css']
+    selector: 'app-socio-edit',
+    templateUrl: './socio-edit.component.html',
+    styleUrls: ['./socio-edit.component.css']
 })
 export class SocioEditComponent implements OnInit {
 
@@ -19,24 +19,23 @@ export class SocioEditComponent implements OnInit {
     @ViewChild('successAlert') private successAlert: SwalComponent;
     @ViewChild('errorAlert') private errorAlert: SwalComponent;
 
-  socio: any;
+    socio: any;
 
-  constructor(private socioService: SocioService,
-    private route: ActivatedRoute) { }
+    constructor(private socioService: SocioService,
+        private route: ActivatedRoute) { }
 
-  ngOnInit() {
-    this.route.params.subscribe( params => 
-      this.socioService.buscarPorId(params['id']).subscribe(
-        (data) => {
-          console.log(data);
-          this.socio = data;
-        },
-        (error) => {
-          error => console.log(error);
-        }
-      )
-    );
-  }
+    ngOnInit() {
+        this.route.params.subscribe(params =>
+            this.socioService.buscarPorId(params['id']).subscribe(
+                (data) => {
+                    this.socio = data;
+                },
+                (error) => {
+                    error => console.log(error);
+                }
+            )
+        );
+    }
 
     tipoPessoaChange(tipoPessoa) {
         if (tipoPessoa === 'JURIDICA') {

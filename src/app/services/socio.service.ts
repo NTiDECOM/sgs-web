@@ -10,7 +10,11 @@ export class SocioService {
   constructor(private http: HttpClient) { }
 
   salvarSocio(socio) {
-    return this.http.post(environment.baseApi + 'socios', socio);
+    if (socio.id != null && socio.id != undefined) {
+      return this.http.put(environment.baseApi + 'socios/' + socio.id, socio);
+    } else {
+      return this.http.post(environment.baseApi + 'socios', socio);
+    }
   }
 
   listarSocios() {
