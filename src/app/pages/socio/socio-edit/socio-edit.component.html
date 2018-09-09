@@ -55,14 +55,14 @@
           <label>Sexo</label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="sexo" [(ngModel)]="socio.pessoa.sexo"
-                   id="sexo1" value="MASCULINO" required>
+                   id="sexo1" value="MASCULINO">
             <label class="form-check-label" for="sexo1">
               Masculino
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="sexo" [(ngModel)]="socio.pessoa.sexo"
-                   id="sexo2" value="FEMININO" required>
+                   id="sexo2" value="FEMININO">
             <label class="form-check-label" for="sexo2">
               Feminino
             </label>
@@ -107,7 +107,7 @@
         <div class="form-group">
           <label for="metodo_contribuicao">Forma de Contribuição</label>
           <select class="form-control" name="metodo_contribuicao" [(ngModel)]="socio.metodoContribuicao"
-                  id="metodo_contribuicao" required>
+                  id="metodo_contribuicao">
             <!--<option *ngFor="let m of metodosContribuicao">{{m}}</option>-->
             <option value="DINHEIRO">Espécie</option>
             <option value="DEPOSITO">Depósito</option>
@@ -121,14 +121,14 @@
         <div class="form-group">
           <label for="valor_contribuicao">Valor de Contribuição</label>
           <input type="text" class="form-control" [(ngModel)]="socio.valorContribuicao"
-                 id="valor_contribuicao" name="valor_contribuicao" required>
+                 id="valor_contribuicao" name="valor_contribuicao">
         </div>
       </div>
       <div class="col-3">
         <div class="form-group">
           <label for="vencimento_contribuicao">Vencimento da Contribuição</label>
           <input type="text" class="form-control" [(ngModel)]="socio.vencimentoContribuicao"
-                 id="vencimento_contribuicao" name="vencimento_contribuicao" required>
+                 id="vencimento_contribuicao" name="vencimento_contribuicao">
         </div>
       </div>
     </div>
@@ -153,21 +153,21 @@
           <label>Modalidade de Associação</label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="modalidade" [(ngModel)]="socio.modalidadeAssociacao"
-                   id="modalidade1" value="EFETIVO" required>
+                   id="modalidade1" value="EFETIVO">
             <label class="form-check-label" for="modalidade1">
               Sócio Efetivo
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="modalidade" [(ngModel)]="socio.modalidadeAssociacao"
-                   id="modalidade2" value="FEDERATIVO" required>
+                   id="modalidade2" value="FEDERATIVO">
             <label class="form-check-label" for="modalidade2">
               Sócio Federativo
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="modalidade" [(ngModel)]="socio.modalidadeAssociacao"
-                   id="modalidade3" value="CONTRIBUINTE" required>
+                   id="modalidade3" value="CONTRIBUINTE">
             <label class="form-check-label" for="modalidade3">
               Sócio Contribuinte
             </label>
@@ -179,21 +179,21 @@
           <label>Categoria de Associação</label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="categoria" [(ngModel)]="socio.categoriaAssociacao"
-                   id="categoria2" value="PARCEIRO" required>
+                   id="categoria2" value="PARCEIRO">
             <label class="form-check-label" for="categoria2">
               Sócio Parceiro
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="categoria" [(ngModel)]="socio.categoriaAssociacao"
-                   id="categoria3" value="CONTRIBUINTE" required>
+                   id="categoria3" value="CONTRIBUINTE">
             <label class="form-check-label" for="categoria3">
               Sócio Contribuinte
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="categoria" [(ngModel)]="socio.categoriaAssociacao"
-                   id="categoria1" value="DOADOR" required>
+                   id="categoria1" value="DOADOR">
             <label class="form-check-label" for="categoria1">
               Doador Esporádico
             </label>

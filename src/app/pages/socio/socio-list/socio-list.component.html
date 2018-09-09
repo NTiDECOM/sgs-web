@@ -10,6 +10,7 @@
     class="table table-striped table-hover">
       <thead>
         <tr>
+          <th>ID</th>
           <th>Nome</th>
           <th>Email</th>
           <th>Data</th>
@@ -18,6 +19,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let s of socios">
+          <td>{{ s.id }}</td>
           <td><a routerLink="/socios/{{s.id}}/view">{{ s.pessoa.nome }}</a></td>
           <td><a href="mailto:{{ s.pessoa.email }}">{{ s.pessoa.email }}</a></td>
           <td>{{ s.pessoa.dataNascimento | date : "dd/MM/yyyy" }}</td>
