@@ -9,10 +9,10 @@ export class ReportService {
 
   constructor(private http: HttpClient) { }
 
-  reportInscricoes() {
+  reportAssociados() {
     let headers = new HttpHeaders();
     headers = headers.set('Accept', 'application/pdf');
-    return this.http.get(environment.baseApi + 'aje/report/inscricoes', {headers: headers, responseType: 'blob'});
+    return this.http.get(environment.baseApi + 'socios/reports/associados', {headers: headers, responseType: 'blob'});
   }
 
 }

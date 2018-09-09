@@ -14,19 +14,19 @@ export class ReportsComponent implements OnInit {
   }
 
   reportAssociados() {
-    // this.reportService.reportInscricoes().subscribe(
-    //   (pdf) => {
-    //     let file = new Blob([pdf], { type: 'application/pdf' });            
-    //     var fileURL = URL.createObjectURL(file);
-    //     var link = document.createElement('a');
-    //     link.href = fileURL;
-    //     link.download = 'INSCRICOES_AJE2018.pdf';
-    //     link.dispatchEvent(new MouseEvent('click'));
-    //   }, 
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+    this.reportService.reportAssociados().subscribe(
+      (pdf) => {
+        let file = new Blob([pdf], { type: 'application/pdf' });            
+        var fileURL = URL.createObjectURL(file);
+        var link = document.createElement('a');
+        link.href = fileURL;
+        link.download = 'SIGA_ASSOCIADOS.pdf';
+        link.dispatchEvent(new MouseEvent('click'));
+      }, 
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 }
