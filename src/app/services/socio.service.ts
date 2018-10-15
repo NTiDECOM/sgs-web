@@ -21,6 +21,15 @@ export class SocioService {
     return this.http.get(environment.baseApi + 'socios');
   }
 
+  registrarContribuicao(historicoContribuicao, idSocio) {
+    historicoContribuicao.socio = {id: idSocio};
+    return this.http.post(environment.baseApi + 'socios/contribuicao', historicoContribuicao);
+  }
+
+  listarContribuicoes(idSocio) {
+    return this.http.get(environment.baseApi + 'socios/' + idSocio + '/contribuicao');
+  }
+
   buscarPorId(id) {
     return this.http.get(environment.baseApi + 'socios/' + id);
   }
