@@ -75,3 +75,79 @@
     <strong>Categoria de Contribuicao: </strong>{{ socio.categoriaAssociacao }}
   </div>
 </div>
+
+<div class="row" style="margin-top: 30px; text-align: right;">
+  <div class="col-12">
+    <button class="btn btn-outline-primary" (click)="abreModalContribuicao()">Registrar Contribuição</button>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 30px;">
+  <div class="col-12">
+    <table datatable [dtTrigger]="dtTrigger" [dtOptions]="dtOptions" 
+    class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Valor</th>
+          <th>Data Contribuição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of contribuicoes">
+          <td>{{ c.id }}</td>
+          <td>R$ {{ c.valorPago }}</td>
+          <td>{{ c.dataPagamento }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="modalContribuicao" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Nova Contribuição</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="data_pagamento">Data de Pagamento</label>
+            <input type="text" class="form-control" id="data_pagamento" name="data_pagamento"
+            [mask]="dateMask" placeholder="dd/MM/yyyy" [(ngModel)]="newContribuicao.dataPagamento">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="valor_pagamento">Valor Pagamento</label>
+            <input type="text" class="form-control" id="valor_pagamento" name="valor_pagamento"
+             [(ngModel)]="newContribuicao.valorPago">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="registarContribuicao()">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<swal
+  #successAlert
+  title="Sucesso!"
+  text="Registro de contribuição realizado com sucesso."
+  type="success"
+  (confirm)="swalClose()">
+</swal>
+
+<swal
+  #errorAlert
+  title="Erro!"
+  text="Algo deu errado. Não foi dessa vez :/"
+  type="error">
+</swal>
