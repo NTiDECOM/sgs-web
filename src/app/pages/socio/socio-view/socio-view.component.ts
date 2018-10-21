@@ -16,6 +16,7 @@ declare var $: any;
 export class SocioViewComponent implements AfterViewInit, OnDestroy, OnInit {
 
   readonly dateMask: Mask = new Mask('00/00/0000');
+  readonly dateMesAnoMask: Mask = new Mask('00/0000');
   readonly maskMoney: string = '000.00';
 
   @ViewChild('successAlert') private successAlert: SwalComponent;
