@@ -90,6 +90,8 @@
         <tr>
           <th>ID</th>
           <th>Valor</th>
+          <th>Referencia</th>
+          <th>Metodo</th>
           <th>Data Contribuição</th>
         </tr>
       </thead>
@@ -97,6 +99,8 @@
         <tr *ngFor="let c of contribuicoes">
           <td>{{ c.id }}</td>
           <td>R$ {{ c.valorPago }}</td>
+          <td>{{ c.mesAnoReferencia }}</td>
+          <td>{{ c.metodoContribuicao }}</td>
           <td>{{ c.dataPagamento }}</td>
         </tr>
       </tbody>
@@ -126,6 +130,27 @@
             <label for="valor_pagamento">Valor Pagamento</label>
             <input type="text" class="form-control" id="valor_pagamento" name="valor_pagamento"
              [(ngModel)]="newContribuicao.valorPago">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="metodo_contribuicao">Forma de Contribuição</label>
+            <select class="form-control" name="metodo_contribuicao" [(ngModel)]="newContribuicao.metodoContribuicao"
+                    id="metodo_contribuicao">
+              <!--<option *ngFor="let m of metodosContribuicao">{{m}}</option>-->
+              <option value="DINHEIRO">Espécie</option>
+              <option value="DEPOSITO">Depósito</option>
+              <option value="CARTAO_DEBITO">Cartão de Débito</option>
+              <option value="CARTAO_CREDITO">Cartão de Crédito</option>
+              <option value="TRANSFERENCIA">Transferência</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="referencia">Mês/Ano Referencia</label>
+            <input type="text" class="form-control" id="referencia" name="referencia"
+            [mask]="dateMesAnoMask" placeholder="MM/yyyy" [(ngModel)]="newContribuicao.mesAnoReferencia">
           </div>
         </div>
       </div>
